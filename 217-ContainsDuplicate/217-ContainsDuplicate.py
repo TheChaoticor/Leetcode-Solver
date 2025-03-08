@@ -1,6 +1,6 @@
 class Solution:
-    def containsDuplicate(self, nums: List[int]) -> bool:
-        num1=set(nums)
-        ls1=list(num1)
-        return len(nums)!=len(ls1)
-        
+    def missingNumber(self, nums: List[int]) -> int:
+        ls1=sum(nums)
+        n=len(nums)
+        sum1=(n*(n+1))//2
+        return sum1-ls1
