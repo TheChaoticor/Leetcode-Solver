@@ -1,14 +1,10 @@
-# Last updated: 4/6/2025, 8:36:41 AM
+# Last updated: 5/20/2025, 11:19:42 PM
+from collections import defaultdict
+
 class Solution:
-    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        dic=Counter(nums)
-        dic=dict(sorted(dic.items(),key= lambda item:item[1],reverse=True))
-        
-        ls=[]
-        c=0
-        for i in dic:
-            if c==k:
-                break
-            ls.append(i)
-            c+=1
-        return ls        
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        nt = defaultdict(list)
+        for word in strs:
+            key = ''.join(sorted(word))  # Sorted word is the same for all anagrams
+            nt[key].append(word)
+        return list(nt.values())
